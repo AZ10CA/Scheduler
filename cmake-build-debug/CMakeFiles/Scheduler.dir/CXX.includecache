@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/alireza/Desktop/C++/Scheduler/Habit.h
+iostream
+-
+
+/Users/alireza/Desktop/C++/Scheduler/Scheduler.h
+Utils.h
+/Users/alireza/Desktop/C++/Scheduler/Utils.h
+Habit.h
+/Users/alireza/Desktop/C++/Scheduler/Habit.h
+
+/Users/alireza/Desktop/C++/Scheduler/Stream.h
+vector
+-
+cassert
+-
+
+/Users/alireza/Desktop/C++/Scheduler/Utils.h
+fstream
+-
+Stream.h
+/Users/alireza/Desktop/C++/Scheduler/Stream.h
+
+/Users/alireza/Desktop/C++/Scheduler/algorithms.h
+
+/Users/alireza/Desktop/C++/Scheduler/main.cpp
+Scheduler.h
+/Users/alireza/Desktop/C++/Scheduler/Scheduler.h
+algorithms.h
+/Users/alireza/Desktop/C++/Scheduler/algorithms.h
+
