@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/alireza/Desktop/C++/Scheduler/Habit.cpp
-Utils.h
-/Users/alireza/Desktop/C++/Scheduler/Utils.h
-Habit.h
-/Users/alireza/Desktop/C++/Scheduler/Habit.h
-
 /Users/alireza/Desktop/C++/Scheduler/Habit.h
 iostream
 -
@@ -43,12 +37,4 @@ fstream
 -
 Stream.h
 /Users/alireza/Desktop/C++/Scheduler/Stream.h
-
-/Users/alireza/Desktop/C++/Scheduler/algorithms.h
-
-/Users/alireza/Desktop/C++/Scheduler/main.cpp
-Scheduler.h
-/Users/alireza/Desktop/C++/Scheduler/Scheduler.h
-algorithms.h
-/Users/alireza/Desktop/C++/Scheduler/algorithms.h
 

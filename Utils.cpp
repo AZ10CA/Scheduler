@@ -53,7 +53,6 @@ string Utils::read_token(const string &str, char dlm) {
 }
 
 unsigned long long Utils::to_military(const string &standard, char dlm) {
-    // tested
     vector<string> spl = Utils::split(standard, dlm);
     auto is_empty = [](const string &str) { return str.empty(); };
     if (spl.empty() or any_of(spl.begin(), spl.end(), is_empty))
@@ -67,6 +66,7 @@ unsigned long long Utils::to_military(const string &standard, char dlm) {
 }
 
 string Utils::to_standard(int military, char dlm) {
+    // military has to be in seconds
     assert(military >= 0);
     int hours = military / 1_HOUR;
     military %= 1_HOUR;

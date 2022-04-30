@@ -8,8 +8,6 @@
 #include "Stream.h"
 using namespace std;
 
-constexpr static int PRECISION = (5 * 60);
-
 constexpr int operator "" _SECOND(unsigned long long seconds) {
     return (int) seconds;
 }
@@ -39,6 +37,20 @@ public:
     static unsigned long long to_military(const string &standard, char dlm = ':');
 
     static string to_standard(int military, char dlm = ':');
+
+    template <typename T, typename Comparator>
+    static void bubble_sort(vector<T>& vec, Comparator comparator){
+        for(int i = 0; i < vec.size() - 1; i++) {
+            bool swapped = false;
+            for (int j = 0; j < vec.size() - i - 1; j++)
+                if(not comparator(vec[j], vec[j + 1])) {
+                    std::swap(vec[j], vec[j + 1]);
+                    swapped = true;
+                }
+            if(not swapped)
+                break;
+        }
+    }
 };
 
 

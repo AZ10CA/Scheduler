@@ -79,95 +79,28 @@ ostream& operator<<(ostream& os, const vector<T>& vec){
     return os;
 }
 
+
+
 class Scheduler {
-    bitset<24_HOUR / PRECISION> timeline;
+    constexpr static int PRECISION = 5_MIN;
+
+    bitset<1_DAY / PRECISION> timeline;
     vector<tuple<string, int, int>> schedule;
 
     string habits_file;
     vector<Habit> habits;
 
-    unordered_map<string, vector<pair<int, int>>> free_ranges;
+    bool has_solution{};
+    unordered_map<int, pair<int, int>> bf_schedule;
+    vector<unordered_map<int, pair<int, int>>> bf_results;
 
 public:
-    void optimal_schedule(int count){
-        if(count == habits.size()){
-            cout << schedule << endl;
-            return;
-        }
-        const auto& habit = habits[count];
-        for(int i = 0; i < free_ranges[habit.name].size(); i++) {
-            const auto&[start, end] = free_ranges[habit.name][i];
-            if (is_timeline_occupied(start, end)) {
-                if (i == free_ranges[habit.name].size() - 1)
-                    return;
-                else
-                    continue;
-            }
-            auto copy = timeline;
-            set_timeline(start, end, true); // set state
 
-            optimal_schedule(count + 1);
+    explicit Scheduler(string habits_file);
 
-            timeline = copy; // unset state
-        }
-    }
-
-    bool is_timeline_occupied(int start, int end);
-
-    void set_timeline(int start, int end, bool value);
-
-
-    explicit Scheduler(string habits_file) :
-            habits_file(std::move(habits_file)) {
-        load_habits();
-    }
-
-    void set_free_ranges(){
-        for(const auto& habit: habits){
-            vector<pair<int, int>> ranges;
-
-        }
-    }
-
-public:
     void load_habits();
 
     void greedy_schedule();
-
-    private:
-    bool set_strict_habit(const Habit& habit) {
-        // precise
-        if(not is_timeline_occupied(habit.min / PRECISION, habit.max / PRECISION)) {
-            set_timeline(habit.min / PRECISION, habit.max / PRECISION, true);
-            schedule.emplace_back(habit.name, habit.min / PRECISION, habit.max / PRECISION);
-            return true;
-        }
-        return false;
-    }
-
-    bool set_flexible_habit(const Habit& habit) {
-        // precise
-        const int &s = habit.min / PRECISION, e = habit.max / PRECISION, d = habit.duration / PRECISION;
-        assert(e - s > d);
-        bool found_range = false;
-        for (int i = s; not found_range && i < e - d + 1; i++) {
-            for (int j = 0; j < e; j++) {
-                if (not timeline[i + j]) {
-                    if (j == d - 1) {
-                        for (int z = 0; z < d; z++)
-                            timeline[i + z] = true;
-                        found_range = true;
-                        schedule.emplace_back(habit.name, i, i + d);
-                        break;
-                    }
-                } else break;
-            }
-        }
-        return found_range;
-    }
-
-public:
-    auto get_timeline();
 
     [[nodiscard]] auto get_schedule() const;
 
@@ -175,8 +108,41 @@ public:
 
     int allocated_time();
 
+    void bruteforce_schedule();
+
+    template<typename Comparator>
+    void sort_data_file(Comparator comparator);
+
+private:
+    [[nodiscard]] const Habit &get_habit_by_id(int id) const;
+
+    bool set_strict_habit(const Habit &habit);
+
+    bool set_flexible_habit(const Habit &habit);
+
+    vector<pair<int, int>> free_ranges(int s, int e, int min_length = 0);
+
+    bool is_timeline_occupied(int start, int end);
+
+    void set_timeline(int start, int end, bool value);
+
+    void recursive_planner(int count);
 };
 
+template<typename Comparator>
+void Scheduler::sort_data_file(Comparator comparator) {
+    Stream<Habit> stream(habits);
+    ofstream writer(habits_file);
+    stream
+            .bubble(comparator)
+            .peek([&](const auto& habit){
+                writer << '"' << habit.name << '"' << ", "
+                       << Utils::to_standard(habit.min) << ", "
+                       << Utils::to_standard(habit.max) << ", "
+                       << habit.duration << endl;
+            });
 
+    writer.close();
+}
 
 #endif //SCHEDULER_SCHEDULER_H
