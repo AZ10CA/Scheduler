@@ -80,7 +80,7 @@ ostream& operator<<(ostream& os, const vector<T>& vec){
 }
 
 class Scheduler {
-    bitset<24_HOUR> timeline;
+    bitset<24_HOUR / PRECISION> timeline;
     vector<tuple<string, int, int>> schedule;
 
     string habits_file;
@@ -95,13 +95,10 @@ public:
             return;
         }
         const auto& habit = habits[count];
-        const auto& ranges = free_ranges[habit.name];
-        for(int i = 0; i < ranges.size(); i++) {
-            const auto&[start, end] = ranges[i];
+        for(int i = 0; i < free_ranges[habit.name].size(); i++) {
+            const auto&[start, end] = free_ranges[habit.name][i];
             if (is_timeline_occupied(start, end)) {
-                if (i == ranges.size() - 1)
-                    // the current timeline can't fit this schedule since all the free ranges for this habit,
-                    // are already occupied by other habits
+                if (i == free_ranges[habit.name].size() - 1)
                     return;
                 else
                     continue;
@@ -139,16 +136,18 @@ public:
 
     private:
     bool set_strict_habit(const Habit& habit) {
-        if(not is_timeline_occupied(habit.min, habit.max)) {
-            set_timeline(habit.min, habit.max, true);
-            schedule.emplace_back(habit.name, habit.min, habit.max);
+        // precise
+        if(not is_timeline_occupied(habit.min / PRECISION, habit.max / PRECISION)) {
+            set_timeline(habit.min / PRECISION, habit.max / PRECISION, true);
+            schedule.emplace_back(habit.name, habit.min / PRECISION, habit.max / PRECISION);
             return true;
         }
         return false;
     }
 
     bool set_flexible_habit(const Habit& habit) {
-        const int &s = habit.min, e = habit.max, d = habit.duration;
+        // precise
+        const int &s = habit.min / PRECISION, e = habit.max / PRECISION, d = habit.duration / PRECISION;
         assert(e - s > d);
         bool found_range = false;
         for (int i = s; not found_range && i < e - d + 1; i++) {
@@ -158,7 +157,7 @@ public:
                         for (int z = 0; z < d; z++)
                             timeline[i + z] = true;
                         found_range = true;
-                        schedule.emplace_back(habit.name, i, i + habit.duration);
+                        schedule.emplace_back(habit.name, i, i + d);
                         break;
                     }
                 } else break;

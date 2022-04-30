@@ -8,6 +8,8 @@
 #include "Stream.h"
 using namespace std;
 
+constexpr static int PRECISION = (5 * 60);
+
 constexpr int operator "" _SECOND(unsigned long long seconds) {
     return (int) seconds;
 }

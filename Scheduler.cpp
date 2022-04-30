@@ -26,10 +26,10 @@ void Scheduler::output_schedule(const char *filename) {
             .peek([&](auto &habit) {
                 const auto&[name, start, end] = habit;
                 writer << '"' << name << '"' << ", " <<
-                       Utils::to_standard(start) << ", " << Utils::to_standard(end) << endl;
+                       Utils::to_standard(start * PRECISION) << ", " << Utils::to_standard(end * PRECISION) << endl;
             });
 
-    writer << "Allocated time: " << Utils::to_standard(allocated_time()) << endl;
+    writer << "Allocated time: " << Utils::to_standard(allocated_time() * PRECISION) << endl;
 
     writer.close();
 }
@@ -58,6 +58,7 @@ auto Scheduler::get_timeline() {
 }
 
 void Scheduler::greedy_schedule() {
+    // precise
     Stream<Habit> stream(habits);
     stream
             // habits with tighter range should at the beginning of the array

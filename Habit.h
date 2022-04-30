@@ -7,7 +7,7 @@
 #include <iostream>
 using namespace std;
 
-struct Habit {
+struct Habit {// precision of habit is in seconds, but it is converted to PRECISION in the Scheduler class
     string name;
     int min;
     int max;
