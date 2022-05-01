@@ -63,28 +63,12 @@
  *          we have a candidate
  */
 
-template <typename A, typename B, typename C>
-ostream& operator<<(ostream& os, const tuple<A, B, C>& tup){
-    const auto&[a, b, c] = tup;
-    os << "(" << a << ", " << b << ", " << c << ")";
-    return os;
-}
-
-template <typename T>
-ostream& operator<<(ostream& os, const vector<T>& vec){
-    os << '[';
-    for(const auto& each: vec)
-        os << each << ", ";
-    os << ']';
-    return os;
-}
-
-
 
 class Scheduler {
-    constexpr static int PRECISION = 5_MIN;
+    constexpr static int PRECISION = 15_MIN;
+    constexpr static int BITS = 1_DAY / PRECISION;
 
-    bitset<1_DAY / PRECISION> timeline;
+    bitset<BITS> timeline;
     vector<tuple<string, int, int>> schedule;
 
     string habits_file;
@@ -93,6 +77,9 @@ class Scheduler {
     bool has_solution{};
     unordered_map<int, pair<int, int>> bf_schedule;
     vector<unordered_map<int, pair<int, int>>> bf_results;
+
+    unordered_map<bitset<BITS>, unordered_map<int, bool>> bf_states{};
+    int duplicate_calls{};
 
 public:
 
@@ -127,6 +114,9 @@ private:
     void set_timeline(int start, int end, bool value);
 
     void recursive_planner(int count);
+
+public:
+    int get_duplicate_calls() const;
 };
 
 template<typename Comparator>

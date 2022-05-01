@@ -1,22 +1,26 @@
 "Night sleep", 00:00:00, 08:00:00, 28800
-"Work on side project", 00:00:00, 24:00:00, 3600
+"Work on side project", 00:00:00, 24:00:00, 5400
 "Watch movies", 00:00:00, 24:00:00, 3600
-"Wash your face with soap", 08:00:00, 09:00:00, 300
-"Eat breakfast", 08:00:00, 12:00:00, 900
-"Learn IOS", 08:00:00, 14:00:00, 3600
-"Aim-lab training", 09:00:00, 13:00:00, 3600
+"Skin care", 08:00:00, 10:00:00, 900
+"Eat breakfast", 08:00:00, 12:00:00, 1800
+"Make coffee", 08:00:00, 12:00:00, 900
+"English class", 08:00:00, 14:00:00, 3600
+"Learn IOS", 08:00:00, 15:00:00, 3600
+"Aim-lab training", 09:00:00, 16:00:00, 1800
 "Read books", 10:00:00, 20:00:00, 1800
 "Take a Break", 12:00:00, 12:30:00, 1800
-"Power nap", 13:00:00, 14:00:00, 2400
+"Power nap", 13:00:00, 14:00:00, 1800
+"Eat lunch", 13:00:00, 15:00:00, 1800
 "Work on relationship", 15:00:00, 20:00:00, 3600
-"Study for G1", 15:00:00, 20:00:00, 2700
+"Study for G1", 15:00:00, 20:00:00, 1800
+"Meditate", 15:00:00, 24:00:00, 1800
 "Take a Break", 16:00:00, 16:30:00, 1800
-"Valorant training", 16:00:00, 20:00:00, 3600
+"Exercise", 16:00:00, 19:00:00, 3600
+"Valorant training", 16:00:00, 20:00:00, 1800
 "Aim-lab training", 16:00:00, 20:00:00, 1800
 "Learn IOS", 16:00:00, 22:00:00, 3600
-"Exercise", 16:30:00, 17:30:00, 3600
 "Take a Break", 20:00:00, 20:30:00, 1800
-"Wash your face with soap", 22:00:00, 24:00:00, 300
-"Meditate", 23:00:00, 24:00:00, 1200
-"Walk in the balcony", 23:00:00, 24:00:00, 300
+"Eat dinner", 20:00:00, 23:00:00, 1800
+"Skin care", 21:00:00, 24:00:00, 900
+"Walk in the balcony", 23:00:00, 24:00:00, 900
 "Night sleep", 23:30:00, 24:00:00, 1800

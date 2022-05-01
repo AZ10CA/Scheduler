@@ -23,6 +23,17 @@ constexpr int operator "" _HOUR(unsigned long long hours) {
 constexpr int operator "" _DAY(unsigned long long days) {
     return (int) days * 24_HOUR;
 }
+#define Timer(sth) measure_time([&](){sth})
+auto measure_time =
+        [](auto&& func, auto&&... params) {
+            // get time before function invocation
+            const auto& start = std::chrono::high_resolution_clock::now();
+            // function invocation using perfect forwarding
+            std::forward<decltype(func)>(func)(std::forward<decltype(params)>(params)...);
+            // get time after function invocation
+            const auto& stop = std::chrono::high_resolution_clock::now();
+            return std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count();
+        };
 
 class Utils {
 public:
@@ -51,6 +62,28 @@ public:
                 break;
         }
     }
+
+    template <int T>
+    static bitset<T> bitmask(int start, int end){
+        assert(end <= T && end > start && start >= 0);
+        bitset<T> mask(1);
+        mask = ~(mask << (T - 1));
+        mask[T - 1] = true;
+        mask >>= T - (end - start); // setting the number of 1s we need
+        // now we align the 1s
+        mask <<= start;
+
+//    bitset<T> mask = (~(1 << (end - start))) << (T - end);
+        return mask;
+    }
+
+    template<int T>
+    static void set(bitset<T>& bits, int start, int end, bool value = true){
+        auto mask = Utils::bitmask<T>(start, end);
+        bits = value ? bits | mask : bits & ~mask;
+    }
+
+
 };
 
 

@@ -16,15 +16,8 @@ void Scheduler::output_schedule(const char *filename) {
     // sorts habits based on their starting time
     ofstream writer(filename);
     Stream<tuple<string, int, int>> schedule_stream(schedule);
-    vector<pair<int, int>> ranges;
-    int s = 0;
-    for(const auto&[name, start, end]: schedule){
-        if(start > s)
-            ranges.emplace_back(s, start);
-        s = end;
-    }
 
-    writer << "name, start, end" << endl;
+    writer << "name, start, end" << endl << endl;
     schedule_stream
             .bubble([](const auto &first, const auto &second) {
                 const auto&[n1, s1, e1] = first;
@@ -37,11 +30,7 @@ void Scheduler::output_schedule(const char *filename) {
                        Utils::to_standard(start * PRECISION) << ", " << Utils::to_standard(end * PRECISION) << endl;
             });
 
-    writer << "Allocated time: " << Utils::to_standard(allocated_time() * PRECISION) << endl;
-
-    writer << "Free ranges are: " << endl;
-    for(const auto&[start, cnt]: ranges)
-        writer << "[" << Utils::to_standard(start * PRECISION) << " to " << Utils::to_standard((start + cnt) * PRECISION) << ")" << endl;
+    writer << endl << "Allocated time: " << Utils::to_standard(allocated_time() * PRECISION) << endl;
 
     writer.close();
 }
@@ -72,7 +61,11 @@ void Scheduler::load_habits() {
     Utils::file_to_stream(habits_file)
             .filter([](const auto &ln) {return not ln.empty();})
             .map<Habit>([](const auto &ln) {return Habit(ln);})
-            .peek([&](auto &habit) {habits.push_back(std::move(habit));});
+            .peek([&](auto &habit){
+                if(habit.duration % PRECISION)
+                    throw runtime_error("Durations must be multiples of " + std::to_string(PRECISION) + " passed " + std::to_string(habit.duration));
+            habits.push_back(std::move(habit));
+});
 }
 
 void Scheduler::set_timeline(int start, int end, bool value) {
@@ -126,6 +119,7 @@ Scheduler::Scheduler(string habits_file) :
 
 vector<pair<int, int>> Scheduler::free_ranges(int s, int e, int min_length) {
     // O(n) where n = e - s;
+
     const auto& range = timeline;
     int start = s;
     int cnt = 0;
@@ -147,6 +141,14 @@ vector<pair<int, int>> Scheduler::free_ranges(int s, int e, int min_length) {
 }
 
 void Scheduler::recursive_planner(int count) {
+    // Memoization
+    if(bf_states.contains(timeline))
+        if(bf_states[timeline].contains(count))
+            if(!bf_states[timeline][count]) {
+                duplicate_calls++;
+                return;
+            }
+
     if (has_solution)
         return;
 
@@ -155,13 +157,19 @@ void Scheduler::recursive_planner(int count) {
         bf_results.push_back(bf_schedule);
         return;
     }
+
     const auto &habit = habits[count];
-    // O(m) where m is (habit.max - habit.min)
+
+    // O(m) where m is (habit.max / PRECISION - habit.min / PRECISION)
     const auto &ranges = free_ranges(habit.min / PRECISION, habit.max / PRECISION, habit.duration / PRECISION);
-    if (ranges.empty())
+    if (ranges.empty()) {
         // previous habits are located such that this habit no longer has any free ranges
         // in this case we should return and relocate previous habit(s)
+        unordered_map<int, bool> map;
+        map[count] = false;
+        bf_states[timeline] = map;
         return;
+    }
 
     for (const auto&[start, cnt]: ranges) { // O(n) where n is the number of free ranges
         auto end = start + cnt;
@@ -169,15 +177,16 @@ void Scheduler::recursive_planner(int count) {
 // i -> [start, end - duration]
 
         auto copy = timeline; // O(1) is_trivially_copyable
-        for (int i = start; i <= end - habit.duration / PRECISION; i++) { // O(end - habit.duration - start + 1)
+        for (int i = start; i <= end - habit.duration / PRECISION; i++) { // O(end - habit.duration / PRECISION - start + 1)
             // set state
-            set_timeline(i, i + habit.duration / PRECISION, true); // O(habit.duration)
-            bf_schedule[habit.id] = make_pair(i * PRECISION, i * PRECISION + habit.duration);
+
+            set_timeline(i, i + habit.duration / PRECISION, true);
+            bf_schedule[habit.id] = make_pair(i * PRECISION, i * PRECISION + habit.duration); // O(1)
 
             recursive_planner(count + 1);
 
             // revert state
-            bf_schedule.erase(habit.id);
+            bf_schedule.erase(habit.id); // O(1)
             timeline = copy;// O(1) -> is_trivially_copyable
         }
     }
@@ -193,6 +202,8 @@ void Scheduler::bruteforce_schedule() {
     timeline.reset();
     bf_schedule.clear();
     schedule.clear();
+    bf_states.clear();
+    duplicate_calls = 0;
 
     recursive_planner(0);
 
@@ -212,4 +223,8 @@ const Habit &Scheduler::get_habit_by_id(int id) const {
         if(habit.id == id)
             return habit;
     throw runtime_error("invalid id");
+}
+
+int Scheduler::get_duplicate_calls() const {
+    return duplicate_calls;
 }

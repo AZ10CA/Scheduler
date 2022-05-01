@@ -51,23 +51,7 @@ public:
     Stream& reverse();
 
     template<typename Comparator>
-    Stream& bubble(Comparator comparator) {
-        // O(n^2)
-        for(int i = 0; i < vec.size() - 1; i++) {
-            bool swapped = false;
-            for (int j = 0; j < vec.size() - i - 1; j++) {
-                if (not comparator(vec[j], vec[j + 1])) {
-                    auto copy = std::move(vec[j]);
-                    vec[j] = std::move(vec[j + 1]);
-                    vec[j + 1] = std::move(copy);
-                    swapped = true;
-                }
-            }
-            if(not swapped)
-                break;
-        }
-        return *this;
-    }
+    Stream& bubble(Comparator comparator);
 };
 
 /******************
@@ -206,6 +190,26 @@ Stream<T> &Stream<T>::slice(int start, int end, int step) {
 template<typename T>
 Stream<T> &Stream<T>::reverse() {
     vec = std::move(slice(0, vec.size(), -1));
+    return *this;
+}
+
+template<typename T>
+template<typename Comparator>
+Stream<T> &Stream<T>::bubble(Comparator comparator) {
+    // O(n^2)
+    for(int i = 0; i < vec.size() - 1; i++) {
+        bool swapped = false;
+        for (int j = 0; j < vec.size() - i - 1; j++) {
+            if (not comparator(vec[j], vec[j + 1])) {
+                auto copy = std::move(vec[j]);
+                vec[j] = std::move(vec[j + 1]);
+                vec[j + 1] = std::move(copy);
+                swapped = true;
+            }
+        }
+        if(not swapped)
+            break;
+    }
     return *this;
 }
 

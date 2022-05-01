@@ -10,10 +10,6 @@
 iostream
 -
 
-/Users/alireza/Desktop/C++/Scheduler/Scheduler.cpp
-Scheduler.h
-/Users/alireza/Desktop/C++/Scheduler/Scheduler.h
-
 /Users/alireza/Desktop/C++/Scheduler/Scheduler.h
 unordered_map
 -
@@ -28,13 +24,13 @@ vector
 cassert
 -
 
-/Users/alireza/Desktop/C++/Scheduler/Utils.cpp
-Utils.h
-/Users/alireza/Desktop/C++/Scheduler/Utils.h
-
 /Users/alireza/Desktop/C++/Scheduler/Utils.h
 fstream
 -
 Stream.h
 /Users/alireza/Desktop/C++/Scheduler/Stream.h
+
+/Users/alireza/Desktop/C++/Scheduler/main.cpp
+Scheduler.h
+/Users/alireza/Desktop/C++/Scheduler/Scheduler.h
 
