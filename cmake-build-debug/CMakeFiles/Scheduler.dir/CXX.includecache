@@ -10,12 +10,32 @@
 iostream
 -
 
-/Users/alireza/Desktop/C++/Scheduler/Scheduler.h
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/BruteforceScheduler.cpp
+BruteforceScheduler.h
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/BruteforceScheduler.h
+
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/BruteforceScheduler.h
+Scheduler.h
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.h
+
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/GreedyScheduler.cpp
+GreedyScheduler.h
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/GreedyScheduler.h
+
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/GreedyScheduler.h
+Scheduler.h
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.h
+
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.cpp
+Scheduler.h
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.h
+
+/Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.h
 unordered_map
 -
-Utils.h
+../Utils.h
 /Users/alireza/Desktop/C++/Scheduler/Utils.h
-Habit.h
+../Habit.h
 /Users/alireza/Desktop/C++/Scheduler/Habit.h
 
 /Users/alireza/Desktop/C++/Scheduler/Stream.h
@@ -29,8 +49,4 @@ fstream
 -
 Stream.h
 /Users/alireza/Desktop/C++/Scheduler/Stream.h
-
-/Users/alireza/Desktop/C++/Scheduler/main.cpp
-Scheduler.h
-/Users/alireza/Desktop/C++/Scheduler/Scheduler.h
 

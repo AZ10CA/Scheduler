@@ -10,10 +10,7 @@ using namespace std;
 struct Habit {// precision of habit is in seconds, but it is converted to PRECISION in the Scheduler class
     static int id_generator;
     string name;
-    int min;
-    int max;
-    int duration;
-    int id{};
+    int min, max, duration, id{};
 
     Habit(string name, int min, int max, int duration);
 
@@ -22,6 +19,8 @@ struct Habit {// precision of habit is in seconds, but it is converted to PRECIS
     friend ostream &operator<<(ostream &os, const Habit &habit);
 
     [[nodiscard]] int get_id() const {return id;}
+
+    [[nodiscard]] string to_string() const;
 
 private:
     void set_id(){ id = id_generator++; }

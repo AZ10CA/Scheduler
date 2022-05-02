@@ -8,7 +8,7 @@
 Habit::Habit(string name, int min, int max, int duration) : name(std::move(name)), min(min), max(max), duration(duration){set_id();}
 
 ostream &operator<<(ostream &os, const Habit &habit) {
-    os << "name: " << habit.name << " min: " << habit.min << " max: " << habit.max << " duration: " << habit.duration;
+    os << habit.to_string();
     return os;
 }
 
@@ -24,4 +24,11 @@ Habit::Habit(const string &raw) {
 }
 
 auto Habit::id_generator = 0;
+
+string Habit::to_string() const {
+    return "name: " + this->name +
+    " min: " +std::to_string(this->min) +
+    " max: " + std::to_string(this->max) +
+    " duration: " + std::to_string(this->duration);
+}
 

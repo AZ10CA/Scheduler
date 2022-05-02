@@ -26,11 +26,8 @@ constexpr int operator "" _DAY(unsigned long long days) {
 #define Timer(sth) measure_time([&](){sth})
 auto measure_time =
         [](auto&& func, auto&&... params) {
-            // get time before function invocation
             const auto& start = std::chrono::high_resolution_clock::now();
-            // function invocation using perfect forwarding
             std::forward<decltype(func)>(func)(std::forward<decltype(params)>(params)...);
-            // get time after function invocation
             const auto& stop = std::chrono::high_resolution_clock::now();
             return std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start).count();
         };
@@ -50,41 +47,50 @@ public:
     static string to_standard(int military, char dlm = ':');
 
     template <typename T, typename Comparator>
-    static void bubble_sort(vector<T>& vec, Comparator comparator){
-        for(int i = 0; i < vec.size() - 1; i++) {
-            bool swapped = false;
-            for (int j = 0; j < vec.size() - i - 1; j++)
-                if(not comparator(vec[j], vec[j + 1])) {
-                    std::swap(vec[j], vec[j + 1]);
-                    swapped = true;
-                }
-            if(not swapped)
-                break;
-        }
-    }
+    static void bubble_sort(vector<T>& vec, Comparator comparator);
 
     template <int T>
-    static bitset<T> bitmask(int start, int end){
-        assert(end <= T && end > start && start >= 0);
-        bitset<T> mask(1);
-        mask = ~(mask << (T - 1));
-        mask[T - 1] = true;
-        mask >>= T - (end - start); // setting the number of 1s we need
-        // now we align the 1s
-        mask <<= start;
-
-//    bitset<T> mask = (~(1 << (end - start))) << (T - end);
-        return mask;
-    }
+    static bitset<T> bitmask(int start, int end);
 
     template<int T>
-    static void set(bitset<T>& bits, int start, int end, bool value = true){
-        auto mask = Utils::bitmask<T>(start, end);
-        bits = value ? bits | mask : bits & ~mask;
-    }
-
+    static void set(bitset<T>& bits, int start, int end, bool value = true);
 
 };
+
+template<int T>
+void Utils::set(bitset<T> &bits, int start, int end, bool value) {
+    auto mask = Utils::bitmask<T>(start, end);
+    bits = value ? bits | mask : bits & ~mask;
+}
+
+
+template<int T>
+bitset<T> Utils::bitmask(int start, int end) {
+    assert(end <= T && end > start && start >= 0);
+    bitset<T> mask(1);
+    mask = ~(mask << (T - 1));
+    mask[T - 1] = true;
+    mask >>= T - (end - start); // setting the number of 1s we need
+    // now we align the 1s
+    mask <<= start;
+
+//    bitset<T> mask = (~(1 << (end - start))) << (T - end);
+    return mask;
+}
+
+template<typename T, typename Comparator>
+void Utils::bubble_sort(vector<T> &vec, Comparator comparator) {
+    for(int i = 0; i < vec.size() - 1; i++) {
+        bool swapped = false;
+        for (int j = 0; j < vec.size() - i - 1; j++)
+            if(not comparator(vec[j], vec[j + 1])) {
+                std::swap(vec[j], vec[j + 1]);
+                swapped = true;
+            }
+        if(not swapped)
+            break;
+    }
+}
 
 
 #endif //SPECTRUM_UTILS_H

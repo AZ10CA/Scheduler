@@ -153,29 +153,77 @@ Habit.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Habit.cpp.s
 .PHONY : Habit.cpp.s
 
-Scheduler.o: Scheduler.cpp.o
-.PHONY : Scheduler.o
+Scheduler/BruteforceScheduler.o: Scheduler/BruteforceScheduler.cpp.o
+.PHONY : Scheduler/BruteforceScheduler.o
 
 # target to build an object file
-Scheduler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler.cpp.o
-.PHONY : Scheduler.cpp.o
+Scheduler/BruteforceScheduler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.o
+.PHONY : Scheduler/BruteforceScheduler.cpp.o
 
-Scheduler.i: Scheduler.cpp.i
-.PHONY : Scheduler.i
+Scheduler/BruteforceScheduler.i: Scheduler/BruteforceScheduler.cpp.i
+.PHONY : Scheduler/BruteforceScheduler.i
 
 # target to preprocess a source file
-Scheduler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler.cpp.i
-.PHONY : Scheduler.cpp.i
+Scheduler/BruteforceScheduler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.i
+.PHONY : Scheduler/BruteforceScheduler.cpp.i
 
-Scheduler.s: Scheduler.cpp.s
-.PHONY : Scheduler.s
+Scheduler/BruteforceScheduler.s: Scheduler/BruteforceScheduler.cpp.s
+.PHONY : Scheduler/BruteforceScheduler.s
 
 # target to generate assembly for a file
-Scheduler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler.cpp.s
-.PHONY : Scheduler.cpp.s
+Scheduler/BruteforceScheduler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.s
+.PHONY : Scheduler/BruteforceScheduler.cpp.s
+
+Scheduler/GreedyScheduler.o: Scheduler/GreedyScheduler.cpp.o
+.PHONY : Scheduler/GreedyScheduler.o
+
+# target to build an object file
+Scheduler/GreedyScheduler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.o
+.PHONY : Scheduler/GreedyScheduler.cpp.o
+
+Scheduler/GreedyScheduler.i: Scheduler/GreedyScheduler.cpp.i
+.PHONY : Scheduler/GreedyScheduler.i
+
+# target to preprocess a source file
+Scheduler/GreedyScheduler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.i
+.PHONY : Scheduler/GreedyScheduler.cpp.i
+
+Scheduler/GreedyScheduler.s: Scheduler/GreedyScheduler.cpp.s
+.PHONY : Scheduler/GreedyScheduler.s
+
+# target to generate assembly for a file
+Scheduler/GreedyScheduler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.s
+.PHONY : Scheduler/GreedyScheduler.cpp.s
+
+Scheduler/Scheduler.o: Scheduler/Scheduler.cpp.o
+.PHONY : Scheduler/Scheduler.o
+
+# target to build an object file
+Scheduler/Scheduler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.o
+.PHONY : Scheduler/Scheduler.cpp.o
+
+Scheduler/Scheduler.i: Scheduler/Scheduler.cpp.i
+.PHONY : Scheduler/Scheduler.i
+
+# target to preprocess a source file
+Scheduler/Scheduler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.i
+.PHONY : Scheduler/Scheduler.cpp.i
+
+Scheduler/Scheduler.s: Scheduler/Scheduler.cpp.s
+.PHONY : Scheduler/Scheduler.s
+
+# target to generate assembly for a file
+Scheduler/Scheduler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.s
+.PHONY : Scheduler/Scheduler.cpp.s
 
 Utils.o: Utils.cpp.o
 .PHONY : Utils.o
@@ -237,9 +285,15 @@ help:
 	@echo "... Habit.o"
 	@echo "... Habit.i"
 	@echo "... Habit.s"
-	@echo "... Scheduler.o"
-	@echo "... Scheduler.i"
-	@echo "... Scheduler.s"
+	@echo "... Scheduler/BruteforceScheduler.o"
+	@echo "... Scheduler/BruteforceScheduler.i"
+	@echo "... Scheduler/BruteforceScheduler.s"
+	@echo "... Scheduler/GreedyScheduler.o"
+	@echo "... Scheduler/GreedyScheduler.i"
+	@echo "... Scheduler/GreedyScheduler.s"
+	@echo "... Scheduler/Scheduler.o"
+	@echo "... Scheduler/Scheduler.i"
+	@echo "... Scheduler/Scheduler.s"
 	@echo "... Utils.o"
 	@echo "... Utils.i"
 	@echo "... Utils.s"

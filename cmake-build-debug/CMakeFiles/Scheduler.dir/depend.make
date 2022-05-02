@@ -6,10 +6,24 @@ CMakeFiles/Scheduler.dir/Habit.cpp.o: \
  ../Habit.h \
  ../Stream.h \
  ../Utils.h
-CMakeFiles/Scheduler.dir/Scheduler.cpp.o: \
+CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.o: \
  ../Habit.h \
- ../Scheduler.cpp \
- ../Scheduler.h \
+ ../Scheduler/BruteforceScheduler.cpp \
+ ../Scheduler/BruteforceScheduler.h \
+ ../Scheduler/Scheduler.h \
+ ../Stream.h \
+ ../Utils.h
+CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.o: \
+ ../Habit.h \
+ ../Scheduler/GreedyScheduler.cpp \
+ ../Scheduler/GreedyScheduler.h \
+ ../Scheduler/Scheduler.h \
+ ../Stream.h \
+ ../Utils.h
+CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.o: \
+ ../Habit.h \
+ ../Scheduler/Scheduler.cpp \
+ ../Scheduler/Scheduler.h \
  ../Stream.h \
  ../Utils.h
 CMakeFiles/Scheduler.dir/Utils.cpp.o: \
@@ -18,7 +32,9 @@ CMakeFiles/Scheduler.dir/Utils.cpp.o: \
  ../Utils.h
 CMakeFiles/Scheduler.dir/main.cpp.o: \
  ../Habit.h \
- ../Scheduler.h \
+ ../Scheduler/BruteforceScheduler.h \
+ ../Scheduler/GreedyScheduler.h \
+ ../Scheduler/Scheduler.h \
  ../Stream.h \
  ../Utils.h \
  ../main.cpp

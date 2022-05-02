@@ -86,10 +86,22 @@
 		<Unit filename="/Users/alireza/Desktop/C++/Scheduler/Habit.h">
 			<Option target="Scheduler"/>
 		</Unit>
-		<Unit filename="/Users/alireza/Desktop/C++/Scheduler/Scheduler.cpp">
+		<Unit filename="/Users/alireza/Desktop/C++/Scheduler/Scheduler/BruteforceScheduler.cpp">
 			<Option target="Scheduler"/>
 		</Unit>
-		<Unit filename="/Users/alireza/Desktop/C++/Scheduler/Scheduler.h">
+		<Unit filename="/Users/alireza/Desktop/C++/Scheduler/Scheduler/BruteforceScheduler.h">
+			<Option target="Scheduler"/>
+		</Unit>
+		<Unit filename="/Users/alireza/Desktop/C++/Scheduler/Scheduler/GreedyScheduler.cpp">
+			<Option target="Scheduler"/>
+		</Unit>
+		<Unit filename="/Users/alireza/Desktop/C++/Scheduler/Scheduler/GreedyScheduler.h">
+			<Option target="Scheduler"/>
+		</Unit>
+		<Unit filename="/Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.cpp">
+			<Option target="Scheduler"/>
+		</Unit>
+		<Unit filename="/Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.h">
 			<Option target="Scheduler"/>
 		</Unit>
 		<Unit filename="/Users/alireza/Desktop/C++/Scheduler/Utils.cpp">

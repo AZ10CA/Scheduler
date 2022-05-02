@@ -1,0 +1,29 @@
+name, start, end
+
+"Night sleep", 00:00:00, 08:00:00
+"Skin care", 08:00:00, 08:15:00
+"Eat breakfast", 08:15:00, 08:45:00
+"Make coffee", 08:45:00, 09:00:00
+"English class", 09:00:00, 10:00:00
+"Learn IOS", 10:00:00, 11:00:00
+"Aim-lab training", 11:00:00, 11:30:00
+"Read books", 11:30:00, 12:00:00
+"Take a Break", 12:00:00, 12:30:00
+"Power nap", 13:00:00, 13:30:00
+"Eat lunch", 13:30:00, 14:00:00
+"Watch movies", 14:00:00, 15:00:00
+"Work on relationship", 15:00:00, 16:00:00
+"Take a Break", 16:00:00, 16:30:00
+"Exercise", 16:30:00, 17:30:00
+"Valorant training", 17:30:00, 18:00:00
+"Aim-lab training", 18:00:00, 18:30:00
+"Study for G1", 18:30:00, 19:00:00
+"Learn IOS", 19:00:00, 20:00:00
+"Take a Break", 20:00:00, 20:30:00
+"Eat dinner", 20:30:00, 21:00:00
+"Skin care", 21:00:00, 21:15:00
+"Meditate", 21:15:00, 21:45:00
+"Work on side project", 21:45:00, 23:15:00
+"Night sleep", 23:30:00, 24:00:00
+
+Allocated time: 23:15:00

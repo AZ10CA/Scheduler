@@ -1,5 +1,5 @@
-#include "Scheduler.h"
-
+#include "Scheduler/GreedyScheduler.h"
+#include "Scheduler/BruteforceScheduler.h"
 
 int test() {
     constexpr int size = 1100000;
@@ -15,35 +15,38 @@ int test() {
     return 0;
 }
 
-int main() {
-//    test();
-//    return 0;
-    /** files **/
-    const char* main_data_file = "habits.data.txt";
-
-    Scheduler scheduler(main_data_file);
+void test_greedy_scheduler(const char* filename){
+    GreedyScheduler scheduler1(filename);
     /** greedy approach **/
     cout << "Greedy took: " << endl << Timer(try {
-        scheduler.greedy_schedule();
-        scheduler.output_schedule("greedy_schedule.txt");
+        scheduler1.greedy_schedule();
+        scheduler1.output_schedule("greedy_schedule.txt");
     } catch (runtime_error& e) {
         cout << "Greedy approach failed" << endl;
     }) << endl;
+}
 
+void test_bruteforce_scheduler(const char* filename){
+    BruteforceScheduler scheduler2(filename);
     /** Bruteforce approach **/
     cout << "Bruteforce took: " << endl << Timer(try {
-        scheduler.bruteforce_schedule();
-        scheduler.output_schedule("bruteforce_schedule.txt");
+        scheduler2.bruteforce_schedule();
+        scheduler2.output_schedule("bruteforce_schedule.txt");
     } catch (runtime_error& e) {
         cout << "bruteforce approach failed" << endl;
     }) << endl;
 
-    cout << "unordered_map detected and avoided " << scheduler.get_duplicate_calls() << " duplicate calls!" << endl;
+    cout << "unordered_map detected and avoided " << scheduler2.get_duplicate_calls() << " duplicate calls!" << endl;
 
-    scheduler.sort_data_file([](const auto& first, const auto& second){
+    scheduler2.sort_data_file([](const auto& first, const auto& second){
         return first.min <= second.min;
     });
+}
 
+int main() {
+    const char* main_data_file = "habits.data.txt";
+    test_greedy_scheduler(main_data_file);
+    test_bruteforce_scheduler(main_data_file);
 
     return 0;
 }

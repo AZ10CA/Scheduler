@@ -2,4 +2,4 @@ maybe you can cache the combo of bitset and count
 if bruteforce has already computed  (bitset, count) and it doesn't have any results, we can just return whenever we reach this state in the
 bruteforce
 
-extend the scheduler to schedule more than 1 day
+extend the scheduler to _schedule more than 1 day

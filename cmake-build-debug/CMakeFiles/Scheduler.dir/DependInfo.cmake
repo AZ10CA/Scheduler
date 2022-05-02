@@ -9,7 +9,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/alireza/Desktop/C++/Scheduler/Habit.cpp" "/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles/Scheduler.dir/Habit.cpp.o"
-  "/Users/alireza/Desktop/C++/Scheduler/Scheduler.cpp" "/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles/Scheduler.dir/Scheduler.cpp.o"
+  "/Users/alireza/Desktop/C++/Scheduler/Scheduler/BruteforceScheduler.cpp" "/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.o"
+  "/Users/alireza/Desktop/C++/Scheduler/Scheduler/GreedyScheduler.cpp" "/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.o"
+  "/Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.cpp" "/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.o"
   "/Users/alireza/Desktop/C++/Scheduler/Utils.cpp" "/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles/Scheduler.dir/Utils.cpp.o"
   "/Users/alireza/Desktop/C++/Scheduler/main.cpp" "/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles/Scheduler.dir/main.cpp.o"
   )

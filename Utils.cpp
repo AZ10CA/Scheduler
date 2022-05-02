@@ -76,3 +76,4 @@ string Utils::to_standard(int military, char dlm) {
            + dlm + (minutes < 10 ? "0" : "") + std::to_string(minutes)
            + dlm + (military < 10 ? "0" : "") + std::to_string(military);
 }
+

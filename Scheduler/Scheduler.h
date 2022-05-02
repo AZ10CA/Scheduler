@@ -5,8 +5,8 @@
 #ifndef SCHEDULER_SCHEDULER_H
 #define SCHEDULER_SCHEDULER_H
 #include <unordered_map>
-#include "Utils.h"
-#include "Habit.h"
+#include "../Utils.h"
+#include "../Habit.h"
 /**
  * To increase performance:
  * set the precision of the timeline to minutes instead of the seconds, it is possible since 60 is the divisor of min, max, duration
@@ -63,66 +63,41 @@
  *          we have a candidate
  */
 
-
 class Scheduler {
+protected:
     constexpr static int PRECISION = 15_MIN;
     constexpr static int BITS = 1_DAY / PRECISION;
 
-    bitset<BITS> timeline;
-    vector<tuple<string, int, int>> schedule;
+    bitset<BITS> _timeline;
+    vector<tuple<string, int, int>> _schedule;
 
-    string habits_file;
-    vector<Habit> habits;
-
-    bool has_solution{};
-    unordered_map<int, pair<int, int>> bf_schedule;
-    vector<unordered_map<int, pair<int, int>>> bf_results;
-
-    unordered_map<bitset<BITS>, unordered_map<int, bool>> bf_states{};
-    int duplicate_calls{};
-
+    string _habits_file;
+    vector<Habit> _habits;
 public:
-
     explicit Scheduler(string habits_file);
-
-    void load_habits();
-
-    void greedy_schedule();
-
-    [[nodiscard]] auto get_schedule() const;
 
     void output_schedule(const char *filename);
 
-    int allocated_time();
-
-    void bruteforce_schedule();
+    int get_alloc_time();
 
     template<typename Comparator>
     void sort_data_file(Comparator comparator);
 
 private:
+    static void check_precision(const Habit& habit);
+
+protected:
     [[nodiscard]] const Habit &get_habit_by_id(int id) const;
-
-    bool set_strict_habit(const Habit &habit);
-
-    bool set_flexible_habit(const Habit &habit);
 
     vector<pair<int, int>> free_ranges(int s, int e, int min_length = 0);
 
-    bool is_timeline_occupied(int start, int end);
-
     void set_timeline(int start, int end, bool value);
-
-    void recursive_planner(int count);
-
-public:
-    int get_duplicate_calls() const;
 };
 
 template<typename Comparator>
 void Scheduler::sort_data_file(Comparator comparator) {
-    Stream<Habit> stream(habits);
-    ofstream writer(habits_file);
+    Stream<Habit> stream(_habits);
+    ofstream writer(_habits_file);
     stream
             .bubble(comparator)
             .peek([&](const auto& habit){

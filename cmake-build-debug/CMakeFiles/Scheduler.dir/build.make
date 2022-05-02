@@ -92,18 +92,18 @@ CMakeFiles/Scheduler.dir/Habit.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Scheduler.dir/Habit.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alireza/Desktop/C++/Scheduler/Habit.cpp -o CMakeFiles/Scheduler.dir/Habit.cpp.s
 
-CMakeFiles/Scheduler.dir/Scheduler.cpp.o: CMakeFiles/Scheduler.dir/flags.make
-CMakeFiles/Scheduler.dir/Scheduler.cpp.o: ../Scheduler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Scheduler.dir/Scheduler.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Scheduler.dir/Scheduler.cpp.o -c /Users/alireza/Desktop/C++/Scheduler/Scheduler.cpp
+CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.o: CMakeFiles/Scheduler.dir/flags.make
+CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.o: ../Scheduler/Scheduler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.o -c /Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.cpp
 
-CMakeFiles/Scheduler.dir/Scheduler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Scheduler.dir/Scheduler.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alireza/Desktop/C++/Scheduler/Scheduler.cpp > CMakeFiles/Scheduler.dir/Scheduler.cpp.i
+CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.cpp > CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.i
 
-CMakeFiles/Scheduler.dir/Scheduler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Scheduler.dir/Scheduler.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alireza/Desktop/C++/Scheduler/Scheduler.cpp -o CMakeFiles/Scheduler.dir/Scheduler.cpp.s
+CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alireza/Desktop/C++/Scheduler/Scheduler/Scheduler.cpp -o CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.s
 
 CMakeFiles/Scheduler.dir/Utils.cpp.o: CMakeFiles/Scheduler.dir/flags.make
 CMakeFiles/Scheduler.dir/Utils.cpp.o: ../Utils.cpp
@@ -118,23 +118,53 @@ CMakeFiles/Scheduler.dir/Utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Scheduler.dir/Utils.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alireza/Desktop/C++/Scheduler/Utils.cpp -o CMakeFiles/Scheduler.dir/Utils.cpp.s
 
+CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.o: CMakeFiles/Scheduler.dir/flags.make
+CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.o: ../Scheduler/GreedyScheduler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.o -c /Users/alireza/Desktop/C++/Scheduler/Scheduler/GreedyScheduler.cpp
+
+CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alireza/Desktop/C++/Scheduler/Scheduler/GreedyScheduler.cpp > CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.i
+
+CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alireza/Desktop/C++/Scheduler/Scheduler/GreedyScheduler.cpp -o CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.s
+
+CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.o: CMakeFiles/Scheduler.dir/flags.make
+CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.o: ../Scheduler/BruteforceScheduler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.o -c /Users/alireza/Desktop/C++/Scheduler/Scheduler/BruteforceScheduler.cpp
+
+CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/alireza/Desktop/C++/Scheduler/Scheduler/BruteforceScheduler.cpp > CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.i
+
+CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/alireza/Desktop/C++/Scheduler/Scheduler/BruteforceScheduler.cpp -o CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.s
+
 # Object files for target Scheduler
 Scheduler_OBJECTS = \
 "CMakeFiles/Scheduler.dir/main.cpp.o" \
 "CMakeFiles/Scheduler.dir/Habit.cpp.o" \
-"CMakeFiles/Scheduler.dir/Scheduler.cpp.o" \
-"CMakeFiles/Scheduler.dir/Utils.cpp.o"
+"CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.o" \
+"CMakeFiles/Scheduler.dir/Utils.cpp.o" \
+"CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.o" \
+"CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.o"
 
 # External object files for target Scheduler
 Scheduler_EXTERNAL_OBJECTS =
 
 Scheduler: CMakeFiles/Scheduler.dir/main.cpp.o
 Scheduler: CMakeFiles/Scheduler.dir/Habit.cpp.o
-Scheduler: CMakeFiles/Scheduler.dir/Scheduler.cpp.o
+Scheduler: CMakeFiles/Scheduler.dir/Scheduler/Scheduler.cpp.o
 Scheduler: CMakeFiles/Scheduler.dir/Utils.cpp.o
+Scheduler: CMakeFiles/Scheduler.dir/Scheduler/GreedyScheduler.cpp.o
+Scheduler: CMakeFiles/Scheduler.dir/Scheduler/BruteforceScheduler.cpp.o
 Scheduler: CMakeFiles/Scheduler.dir/build.make
 Scheduler: CMakeFiles/Scheduler.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Scheduler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/alireza/Desktop/C++/Scheduler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Scheduler"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Scheduler.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
