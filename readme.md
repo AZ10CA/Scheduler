@@ -22,11 +22,11 @@ Please note that the program is still in the early stages and there are some edg
 
 ### Example
 Input:
-cmake-build-debug/habits.data.txt
+<br>cmake-build-debug/habits.data.txt
 
 Output: (two files)
-cmake-build-debug/greedy_schedule.txt
-cmake-build-debug/bruteforce_schedule.txt
+<br>cmake-build-debug/greedy_schedule.txt
+<br>cmake-build-debug/bruteforce_schedule.txt
 
 ### Conclusion
 
