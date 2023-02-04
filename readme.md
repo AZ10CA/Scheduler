@@ -20,6 +20,14 @@ A Stream class has been created for this project, which has several useful featu
 
 Please note that the program is still in the early stages and there are some edge cases that it cannot handle at the moment. However, development is ongoing, and improvements are being made to address these issues.
 
+### Example
+Input:
+cmake-build-debug/habits.data.txt
+
+Output: (two files)
+cmake-build-debug/greedy_schedule.txt
+cmake-build-debug/bruteforce_schedule.txt
+
 ### Conclusion
 
 This program provides an efficient solution for scheduling tasks in a productive manner by classifying them into two categories and creating two schedules using different approaches. The Stream class also makes it easier to write and read the code. Despite its current limitations, the project is still a work in progress and is being constantly improved to handle edge cases and provide an even better solution.
